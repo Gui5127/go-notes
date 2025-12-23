@@ -24,9 +24,11 @@ jobs:
         run: go env
 
       - name: Build
-        run: go build ./...
+        working-directory: .
+        run: go build -o go-notes-app
 
       - name: Test
+        working-directory: .
         run: go test ./...
 
   cd:
