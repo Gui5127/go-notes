@@ -32,12 +32,13 @@ jobs:
         run: go test ./...
 
   cd:
-    name: CD (deploy)
+    name: CD (deploy placeholder)
     needs: ci
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy (manual fallback allowed)
+      - name: Show SSH deploy command
         run: |
-          echo "CD step configured."
-          echo "If SSH to VM is not possible, run scripts/deploy.sh manually on the VM as per assignment."
+          echo "Aqui seria feita a ligação por SSH:"
+          echo "ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /home/appuser/go-notes && ./scripts/deploy.sh'"
+          echo "Na prática, o script deploy.sh é executado manualmente na VM."
